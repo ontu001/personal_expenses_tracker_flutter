@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import './transaction.dart';
 
 void main(){
   runApp(const MyApp());
@@ -20,18 +21,33 @@ class MyApp extends StatelessWidget{
 }
 
 class HomeActivity extends StatelessWidget{
-  const HomeActivity({super.key});
+ final List <Transaction> transaction =[
+   Transaction(id: 't1', title: 'Iphone', amount: 1000, date: DateTime.now()),
+   Transaction(id: 't2', title: 'Mac', amount: 1500, date: DateTime.now()),
+ ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Personal expenses tracker"),),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Card(
-            child: Container(child: Text("header"),width: double.infinity,),
-            elevation: 10,
+          Container(
+            width: double.infinity,
+            height: 400,
+            child:  Card(
+              color: Colors.red,
+              child:  Container(
+                  child: Text("header"),
+                alignment: Alignment.center,
+              ),
+              elevation: 10,
+            ),
           ),
+
+
           Card(
             child:
             Text("component"),
